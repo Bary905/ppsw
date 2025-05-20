@@ -134,10 +134,5 @@ void DecodeMsg(char *pcString){
 	
 }
 
-char pcString[] = "reset 0x1A temperature";
-
 int main(){
-	
-	DecodeMsg(pcString);
-	
 }

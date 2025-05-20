@@ -1,0 +1,9 @@
+--cpu ARM7TDMI
+".\dekodowanie.o"
+".\startup.o"
+".\konwersje.o"
+".\lancuchy.o"
+--strict --scatter ".\dekodowanie.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\dekodowanie.map" -o .\dekodowanie.axf
