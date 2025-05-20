@@ -1,0 +1,23 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\oleks\Desktop\ppsw\Archive\Konwersje\konwersje.uvproj
+Project File Date:  05/21/2025
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling Startup.s...
+Startup.s: error: A1023E: File "Startup.s" could not be opened: No such file or directory
+".\lancuchy.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Rebuild target 'Target 1'
+assembling Startup.s...
+compiling konwersje.c...
+linking...
+Program Size: Code=1076 RO-data=16 RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+".\lancuchy.axf" - 0 Errors, 0 Warning(s).
+Clean started: Project: 'konwersje'
+   deleting intermediate output files for target 'Target 1'
