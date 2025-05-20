@@ -62,7 +62,7 @@ enum KeyboardState eKeyboardRead(){
 }
 void KeyboardInit(){
 	
-	IO0DIR = IO0DIR &(~(S0_bm | S1_bm | S2_bm | S3_bm));
+	IO0DIR = IO0DIR & (~(S0_bm | S1_bm | S2_bm | S3_bm));
 	
 }
 
