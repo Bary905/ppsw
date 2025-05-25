@@ -1,10 +1,10 @@
 #include <LPC21xx.H>
 #include "led.h"
 
-#define LED0_bm 0x00010000
-#define LED1_bm 0x00020000
-#define LED2_bm 0x00040000
-#define LED3_bm 0x00080000
+#define LED0_bm (1 << 16)
+#define LED1_bm (1 << 17)
+#define LED2_bm (1 << 18)
+#define LED3_bm (1 << 19)
 
 void LedInit(void){
 	
