@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <body>
 <pre>
@@ -61,3 +62,5 @@ FromELF: creating hex file...
 ".\dekodowanie.axf" - 0 Errors, 0 Warning(s).
 Clean started: Project: 'dekodowanie'
    deleting intermediate output files for target 'Target 1'
+=======
+>>>>>>> df13bf2cd4046c8dc5166ee328e86efbb187d8b0

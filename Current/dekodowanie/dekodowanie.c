@@ -113,6 +113,7 @@ void DecodeTokens(void){
 		
     psCurrentToken = &asToken[ucTokenCounter];
 		pcString = psCurrentToken->uValue.pcString;
+		
 		if(OK == eStringToKeyword(pcString, &psCurrentToken->uValue.eKeyword)){
 			psCurrentToken->eType = KEYWORD;
 		}
