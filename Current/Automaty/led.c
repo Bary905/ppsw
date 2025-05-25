@@ -22,6 +22,7 @@ void LedOn(unsigned char ucLedIndeks){
 
 }
 
+enum eDirection{LEFT, RIGHT};
 void LedStep(enum eDirection(eStepDirection)){
 	
 	static unsigned int suiLedCounter=0;

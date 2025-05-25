@@ -21,9 +21,6 @@ int main(){
 	
 		switch(eKeyboardRead()){
 			
-			case RELASED :
-				break;
-			
 			case BUTTON_1 :
 				LedStepRight();
 				break;
@@ -32,10 +29,7 @@ int main(){
 				LedStepLeft();
 			  break;
 			
-			case BUTTON_0 :
-				break;
-			
-			case BUTTON_3 :
+			default :
 				break;
 		}
     Delay(250);
