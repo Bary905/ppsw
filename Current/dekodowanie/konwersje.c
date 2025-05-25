@@ -32,11 +32,12 @@ enum Result eHexStringToUInt(char pcStr[],unsigned int *puiValue){
     unsigned char ucCharacterCounter;
     unsigned char ucCurrentCharacter;
 	
-    *puiValue = 0;
-	
     if((pcStr[0] != '0') || (pcStr[1] != 'x') || (pcStr[2] == NULL)){
-        return ERROR;
+		return ERROR;
     }
+    
+    *puiValue = 0;
+    
     for(ucCharacterCounter = 2; pcStr[ucCharacterCounter] !=NULL ; ucCharacterCounter++){
 			
         ucCurrentCharacter = pcStr[ucCharacterCounter];

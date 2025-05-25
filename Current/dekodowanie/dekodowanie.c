@@ -121,7 +121,6 @@ void DecodeTokens(void){
 	  }
 		else{
 			psCurrentToken->eType = STRING;
-			psCurrentToken->uValue.pcString = pcString;
 		}
   }
 }
