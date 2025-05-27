@@ -3,4 +3,4 @@
 INT=0xB00000E8;
 1011 0000 0000 0000 0000 0000 1110 1000
 
-Zmiana w pliku main1.c
+Zmiana w pliku 
