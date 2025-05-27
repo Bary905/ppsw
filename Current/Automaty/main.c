@@ -25,9 +25,11 @@ int main(){
 		switch(eLedState) {
 			
 			case SHIFT_LEFT:
-				LedStepLeft();
 				if( BUTTON_1 == eKeyboardRead() ){
 					eLedState = STOP;
+				}
+				else{
+					LedStepLeft();
 				}
 				break;
 			
@@ -41,9 +43,11 @@ int main(){
 				break;
 			
 			case SHIFT_RIGHT:
-				LedStepRight();
 				if( BUTTON_1 == eKeyboardRead() ){
 					eLedState = STOP;
+				}
+				else{
+					LedStepRight();
 				}
 				break;
 		}
@@ -115,10 +119,12 @@ int main(){
 				break;
 			
 			case SHIFT_RIGHT:
-				LedStepRight();
-			  ucShiftCounter++;
 				if(3 <= ucShiftCounter){
 					eLedState = STOP;
+				}
+				else{
+					LedStepRight();
+					ucShiftCounter++;
 				}
 				break;
 		}
@@ -148,10 +154,12 @@ int main(){
 				break;
 			
 			case SHIFT_RIGHT:
-				LedStepRight();
 				if( BUTTON_0 == eKeyboardRead() ){
 					eLedState = STOP;
 				}
+				else{
+					LedStepRight();
+			  }
 				break;
 		}
 		Delay(250);
