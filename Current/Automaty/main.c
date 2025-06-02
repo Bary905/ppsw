@@ -14,7 +14,7 @@ void Delay(unsigned int uiTime){
 
 int main(){
 	
-	enum LedState {SHIFT_LEFT, STOP, SHIFT_RIGHT, WIPER};
+	enum LedState {SHIFT_LEFT, STOP, SHIFT_RIGHT, WIPER, WAIT_FOR_BUTTON};
 	enum LedState eLedState = STOP;
 	unsigned char ucWiperCycles;
 
@@ -57,16 +57,27 @@ int main(){
 				break;
 				
 			case WIPER:
-				if( ((ucWiperCycles%2)==0) && (ucWiperCycles < 5)){
-					LedStepLeft();
-					ucWiperCycles++;
-				}
-				else if( ((ucWiperCycles%2)==1) && (ucWiperCycles < 5)){
-					LedStepRight();
-					ucWiperCycles++;
+				if(ucWiperCycles == 5){
+					eLedState = WAIT_FOR_BUTTON;
 				}
 				else{
+					if((ucWiperCycles%2)==0){
+						LedStepLeft();
+						ucWiperCycles++;
+					}
+					else if((ucWiperCycles%2)==1){
+						LedStepRight();
+						ucWiperCycles++;
+					}
+				}
+				break;
+				
+				case WAIT_FOR_BUTTON:
+				if( BUTTON_2 == eKeyboardRead() ){
 					eLedState = SHIFT_RIGHT;
+				}
+				else{
+					eLedState = WAIT_FOR_BUTTON;
 				}
 				break;
 		}
