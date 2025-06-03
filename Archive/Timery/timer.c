@@ -18,24 +18,8 @@ void WaitOnTimer0(unsigned int uiTime){
 	
 	T0TCR = (T0TCR | COUNTER_RESET_bm);
 	T0TCR = (T0TCR & (~COUNTER_RESET_bm));
-	
-	enum TimerState {RUN, STOP};
-	enum TimerState eState = RUN;
 
-	switch(eState){
-
-  case RUN:
-		if(T0TC != (uiTime * 15)){
-			while(1){}
-		}
-		else{
-			eState = STOP;
-		}
-		break;
-		
-		case STOP:
-			break;
-	}
+	while (T0TC != (uiTime * 15)){}
  //bezpieczniej uzyc znaku < poniewaz wartosc T0TC zmienia sie bardzo szybko i jest szansa ze odczyt stanu timera minie sie z porownywana wartoscia  T0TC != (uiTime * 15)
 	
 }
@@ -55,6 +39,6 @@ void WaitOnTimer0Match0(void){
 	
 	while((T0IR & T0IR_MR0_INTERRUPT_bm) == 0){}
 	
-	T0IR = (T0IR | T0IR_MR0_INTERRUPT_bm);
+	T0IR = T0IR_MR0_INTERRUPT_bm;
 			
 }
