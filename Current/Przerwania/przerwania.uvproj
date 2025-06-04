@@ -403,16 +403,6 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Automaty\led.c</FilePath>
-            </File>
-            <File>
-              <FileName>led.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Automaty\led.h</FilePath>
-            </File>
-            <File>
               <FileName>timer_interrupts.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\timer_interrupts.c</FilePath>
@@ -426,6 +416,16 @@
               <FileName>keyboard.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\keyboard.h</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\led.h</FilePath>
             </File>
           </Files>
         </Group>

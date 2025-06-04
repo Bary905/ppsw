@@ -47,5 +47,9 @@ int main (){
 
 	while(1){
 	 	uiMainLoopCtr++;
+		uiMainLoopCtr++;
+		uiMainLoopCtr++;
+		uiMainLoopCtr++;
+	  uiMainLoopCtr++;
 	}
 }

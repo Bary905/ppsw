@@ -23,7 +23,7 @@ enum DetectorState eReadDetector(void){
 	}
 }
 
-enum ServoState {CALLIB, IDLE, IN_PROGRESS};
+enum ServoState {CALLIB, IDLE, IN_PROGRESS, OFFSET};
 
 struct Servo{
 	enum ServoState eState;
@@ -36,36 +36,49 @@ void Automat(void){
 	switch(sServo.eState) {
 				
 				case CALLIB:
-					if( INACTIVE == eReadDetector() ){
-						LedStepLeft();
+					if( ACTIVE == eReadDetector() ){
+						sServo.uiCurrentPosition = 12;
+						sServo.uiDesiredPosition = 0;
+						sServo.eState = IDLE;
+						
 					}
 					else{
+						LedStepLeft();
+					}
+					break;
+					
+				case OFFSET:
+					if( sServo.uiCurrentPosition == sServo.uiDesiredPosition ){
 						sServo.uiCurrentPosition = 0;
 						sServo.uiDesiredPosition = 0;
 						sServo.eState = IDLE;
 					}
+					else{
+						LedStepRight();
+						sServo.uiCurrentPosition--;
+					}
 					break;
 					
 				case IDLE:
-					if( sServo.uiCurrentPosition == sServo.uiDesiredPosition ){
-						sServo.eState = IDLE;
+					if( sServo.uiCurrentPosition != sServo.uiDesiredPosition ){
+						sServo.eState = IN_PROGRESS;
 					}
 					else{
-						sServo.eState = IN_PROGRESS;
+						sServo.eState = IDLE;
 					}
 					break;
 				
 				case IN_PROGRESS:
-					if( sServo.uiCurrentPosition < sServo.uiDesiredPosition ){
-						LedStepRight();
-						sServo.uiCurrentPosition++;
+					if( sServo.uiCurrentPosition == sServo.uiDesiredPosition ){
+						sServo.eState = IDLE;
 					}
 					else if( sServo.uiCurrentPosition > sServo.uiDesiredPosition ){
 						LedStepLeft();
 						sServo.uiCurrentPosition--;
 					}
-					else{
-						sServo.eState = IDLE;
+					else if( sServo.uiCurrentPosition < sServo.uiDesiredPosition ){
+						LedStepRight();
+						sServo.uiCurrentPosition++;
 					}
 					break;
 					
@@ -91,5 +104,7 @@ void ServoCallib(void){
 void ServoGoTo(unsigned int uiPosition){
 
 	sServo.uiDesiredPosition = uiPosition;
+	
+	while(sServo.uiCurrentPosition != sServo.uiDesiredPosition){}
 
 }

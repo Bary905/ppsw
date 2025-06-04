@@ -3,8 +3,10 @@
 
 int main (){
 	
-	ServoInit(50);
 	KeyboardInit();
+	ServoInit(50);
+	ServoGoTo(24);
+	ServoGoTo(12);
 	
 
 	while(1){
